@@ -158,6 +158,3 @@ Xception模型的深度可分離卷積相較於傳統卷積層，參數量減少
 2. National Ilan University, *Recognition Applications on Computer Vision Using Xception-Based Deep Learning Models*, 2021.
 3. Ian Goodfellow et al., *Generative Adversarial Networks*, 2014.
 
---- 
-
-希望這份重新撰寫的報告能符合您的需求，並提升內容深度與專業性。
