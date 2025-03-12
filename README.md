@@ -25,7 +25,8 @@ Simpsons角色辨識是一個多分類影像辨識問題，涉及大量具有細
 ## TPU訓練結果
 
 ### 第一次 TPU 訓練
-![TPU 第一次](https://github.com/user-attachments/assets/334c31c3-3142-4787-b734-c12ebb26d4ac)
+![image](https://github.com/user-attachments/assets/22cbab52-0d18-4433-bc7f-adeeac305b81)
+
 - **訓練摘要**：首次使用 TPU 進行訓練，重點在測試模型在 TPU 平台上的初步性能表現。
 - **觀察結果**：
   - 收斂速度適中。
@@ -34,7 +35,7 @@ Simpsons角色辨識是一個多分類影像辨識問題，涉及大量具有細
 ---
 
 ### 第二次 TPU 訓練
-![TPU 第二次](https://github.com/user-attachments/assets/ef10460a-5f1e-4499-9c71-3a0c6f239074)
+![image](https://github.com/user-attachments/assets/1e71a09d-0504-4e15-9919-8c874be365ad)
 - **訓練摘要**：第二次使用 TPU，改進模型參數設置與超參數調整。
 - **觀察結果**：
   - 相較第一次，訓練收斂速度有明顯提升。
@@ -43,7 +44,7 @@ Simpsons角色辨識是一個多分類影像辨識問題，涉及大量具有細
 ---
 
 ## GPU 訓練結果（加入噪音後）
-![GPU 加入噪音](https://github.com/user-attachments/assets/636053a9-6621-424a-a129-790e3a275002)
+![image](https://github.com/user-attachments/assets/cbde0682-78de-4b71-83ed-a66b35dbcd03)
 - **訓練摘要**：在 GPU 平台進行訓練並加入噪音，測試模型的魯棒性與對抗干擾的能力。
 - **觀察結果**：
   - 損失值在初期波動較大，但最終趨於穩定。
@@ -55,10 +56,10 @@ Simpsons角色辨識是一個多分類影像辨識問題，涉及大量具有細
 
 ### Confusion Matrix
 #### 圖一
-![Confusion Matrix 1](https://github.com/user-attachments/assets/eca78491-533b-4a9c-8261-e85928599039)
+![image](https://github.com/user-attachments/assets/fb91680b-ccdd-4dc1-9e74-f5608dd3fc16)
 
 #### 圖二
-![Confusion Matrix 2](https://github.com/user-attachments/assets/65781f50-f5a1-4272-a364-1096e010f571)
+![image](https://github.com/user-attachments/assets/8948212b-cae2-42ed-aac0-b88541cecdd5)
 
 - **準確率分析**：
   ```
@@ -75,7 +76,7 @@ Simpsons角色辨識是一個多分類影像辨識問題，涉及大量具有細
 ## 任務三：模型權重可視化
 
 ### 第一層卷積層（block1_conv1）權重可視化
-![權重可視化](https://github.com/user-attachments/assets/9d8764bb-cb25-41a9-8c41-d3977316653d)
+![image](https://github.com/user-attachments/assets/25cc7341-3cd2-4aba-a497-75b16a6887d8)
 
 1. **每個濾波器的權重圖像**：
    - **RGB 輸入**：每個濾波器由三個通道組成，以彩色圖像顯示。
