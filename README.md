@@ -88,12 +88,6 @@ def random_apply(fn, p): return lambda x: tf.cond(
 
 
 
-| 指標                   | Val (Clean) | Val (Noisy) | Private Test |
-| -------------------- | ----------- | ----------- | ------------ |
-| Accuracy             | **0.882**   | **0.845**   | —            |
-| Loss                 | 0.41        | 0.60        | —            |
-| Kaggle Private Score | —           | —           | **0.93473**  |
-
 ### 模型看到什麼？卷積權重可視化分析
 為了理解模型在學習初期「看見了什麼」，我們對 `block1_conv1`（Xception 的第一個卷積層）所學習的 32 個濾波器進行視覺化，如下圖所示：
 
