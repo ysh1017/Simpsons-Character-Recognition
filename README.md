@@ -36,7 +36,7 @@ François Chollet 在論文 **“Xception: Deep Learning with Depthwise Separabl
 
 ### 3.2 隨機雜訊區塊
 
-為應對測試集各種污染的情況，我們把用戶提供的 **PyTorch augmentation 方法**移植到 Keras 的 functional API。每個 augmentation 包裝如下：
+為應對測試集各種污染的情況，我們把主辦方使用的 **PyTorch augmentation 方法**移植到 Keras 的 functional API。每個 augmentation 包裝如下：
 
 ```python
 def random_apply(fn, p): return lambda x: tf.cond(
@@ -57,14 +57,14 @@ def random_apply(fn, p): return lambda x: tf.cond(
 
 ## 4  實驗設計與訓練歷程
 
-| 元件        | 設定                                                                          |
-| --------- | --------------------------------------------------------------------------- |
-| **骨幹網路**  | pre-trained *keras.applications.Xception*, `include_top=False`              |
-| **輸入形狀**  | (128, 128, 3)                                                               |
-| **分類頭**   | GAP → Dropout 0.5 → Dense 256 (L2 1e-4) + LeakyReLU α=.1 → Dense 50 softmax |
-| **優化器**   | Adam (lr 3 × 10^-4，cosine decay)                                            |
-| **Batch** | 32                                                                          |
-| **早停**    | patience = 3，驗證集：乾淨+帶雜訊平均                                                   |
+| 元件            | 設定                                                                          |
+| ------------- | --------------------------------------------------------------------------- |
+| **骨幹網路**      | pre-trained *keras.applications.Xception*, `include_top=False`              |
+| **輸入形狀**      | (128, 128, 3)                                                               |
+| **分類頭**       | GAP → Dropout 0.5 → Dense 256 (L2 1e-4) + LeakyReLU α=.1 → Dense 50 softmax |
+| **Optimizer** | Adam (lr 3 × 10^-4，cosine decay)                                            |
+| **Batch**     | 32                                                                          |
+| **早停**        | patience = 3，驗證集：乾淨+帶雜訊平均                                                   |
 
 使用 **ModelCheckpoint** callback 儲存 `/content/xception_best_model.keras`，並記錄 SHA-256 以利完整重現。
 
@@ -111,11 +111,11 @@ def random_apply(fn, p): return lambda x: tf.cond(
 
 ## 6  消融實驗與討論
 
-| 變異版本                 | 榜單分數變化    | 註解                     |
-| -------------------- | --------- | ---------------------- |
-| 拿掉深度可分離卷積（換成一般 Conv） | −1.9 個百分點 | 驗證 Chollet 效率主張。       |
-| 只用傳統增強（沒用隨機雜訊）       | −1.2 個百分點 | GAN 論文啟發的雜訊對韌性很關鍵。     |
-| 不做類別平衡重播             | −0.8 個百分點 | 長尾效應仍明顯（例如 Disco Stu）。 |
+| 變異版本                 | 榜單分數變化 | 註解                     |
+| -------------------- | ------ | ---------------------- |
+| 拿掉深度可分離卷積（換成一般 Conv） | −1.9 % | 驗證 Chollet 效率主張。       |
+| 只用傳統增強（沒用隨機雜訊）       | −1.2 % | GAN 論文啟發的雜訊對韌性很關鍵。     |
+| 不做類別平衡重播             | −0.8 % | 長尾效應仍明顯（例如 Disco Stu）。 |
 
 ---
 
