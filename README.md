@@ -9,6 +9,7 @@
 ## 1  專案目標與成果
 
 我們旨在打造一套能夠辨識 50 位常見辛普森家族角色的端到端系統。透過以 **Xception** 為基礎的雙階段 **Transfer learning** 流程，最終在公開排行榜上取得了 **0.93473** 的準確率。
+![image](https://github.com/user-attachments/assets/2243ee73-e212-4335-bfd7-b69f6acf7f7b)
 
 ---
 
